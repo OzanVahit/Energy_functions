@@ -21,7 +21,10 @@ f_Nw = ((1/(dmax*(exp(1)-1)))).*(exp(1-d/dmax)); % probability density function 
 f_Mm(1:N) = 1/dmax; % probability density function for the medium region
 f_We = ((1/(dmax*(exp(1)-1)))).*(1-(exp(1-(d)/dmax)))+(2*e-3)/((e-1)*dmax); % probability density function for the wide region
 
-t = 0:0.01:0.16;
+A_max = [max(f_Nw) max(f_Mm) max(f_We)]
+p_max = max(A_max)+0.01;
+
+t = 0:0.01:p_max;
 M = length(t);
 f_TH1(1:M) = T_H1;
 f_TH2(1:M) = T_H2;
