@@ -17,11 +17,11 @@ T_H1 =  integral(fun,0,dmax)
 fun = @(x) ((1/((e-1)*dmax))*(1-exp(1-x/dmax)) + (2*e-3)/((e-1)*dmax)).*x;
 T_H2 =  integral(fun,0,dmax)
 
-f_Nw = ((1/(dmax*(exp(1)-1)))).*(exp(1-d/dmax)); % probability density function for the narrow region
-f_Mm(1:N) = 1/dmax; % probability density function for the medium region
-f_We = ((1/(dmax*(exp(1)-1)))).*(1-(exp(1-(d)/dmax)))+(2*e-3)/((e-1)*dmax); % probability density function for the wide region
+p_Nw = ((1/(dmax*(exp(1)-1)))).*(exp(1-d/dmax)); % probability density function for the narrow region
+p_Mm(1:N) = 1/dmax; % probability density function for the medium region
+p_We = ((1/(dmax*(exp(1)-1)))).*(1-(exp(1-(d)/dmax)))+(2*e-3)/((e-1)*dmax); % probability density function for the wide region
 
-A_max = [max(f_Nw) max(f_Mm) max(f_We)]
+A_max = [max(p_Nw) max(p_Mm) max(p_We)];
 p_max = max(A_max)+0.01;
 
 t = 0:0.01:p_max;
@@ -31,19 +31,19 @@ f_TH2(1:M) = T_H2;
 
 
 figure(1)
-plot(d,f_We,'g','Linewidth',1)
+plot(d,p_We,'g','Linewidth',1)
 hold on
-plot(d,f_Mm,'b','Linewidth',1)
+plot(d,p_Mm,'b','Linewidth',1)
 hold on
-plot(d,f_Nw,'r','Linewidth',1)
+plot(d,p_Nw,'r','Linewidth',1)
 hold on
-plot(f_TH1,t,'k--','Linewidth',1)
+plot(f_TH1,t,'y--','Linewidth',1)
 hold on
-plot(f_TH2,t,'k--','Linewidth',1)
-
+plot(f_TH2,t,'m--','Linewidth',1)
+hold on
 xlabel("Measurement value (a) [m]  (a_{max} = 10 m) ")
 ylabel("p_{proposed}(a)")
-
+legend({'p(a|W_{e})','p(a|M_{m})','p(a|N_{w})','T_{H1}','T_{H2}'},'Location','southeast')
 
 e_Nw = (1- (d/dmax).*exp(1-d/dmax)); % Energy function for the narrow region
 e_Mm = (1-(d/dmax)); % Energy function for the medium region
@@ -59,4 +59,4 @@ plot(d,e_We,'g','Linewidth',1)
 
 xlabel("Measurement value (a) [m]  (a_{max} = 10 m) ")
 ylabel("e_{proposed}(a)")
-
+legend({'e_{M_{m}}(a)','e_{N_{w}}(a)','e_{W_{e}}(a)'},'Location','southwest')
