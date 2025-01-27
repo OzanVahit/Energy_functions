@@ -47,7 +47,7 @@ legend({'p(a|W_{e})','p(a|M_{m})','p(a|N_{w})','T_{H1}','T_{H2}'},'Location','so
 
 e_Nw = (1- (d/dmax).*exp(1-d/dmax)); % Energy function for the narrow region
 e_Mm = (1-(d/dmax)); % Energy function for the medium region
-e_We = 1 - ((d/((2*e-3)*dmax)).*(1-exp(1-d/dmax)) + d./dmax); % Energy function for the wide region
+e_We = (1 - ((d/((2*e-3)*dmax)).*(1-exp(1-d/dmax)) + d./dmax)); % Energy function for the wide region
 
 
 figure(2)
