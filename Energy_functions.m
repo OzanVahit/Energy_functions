@@ -41,6 +41,7 @@ plot(f_TH2,t,'m--','Linewidth',1)
 hold on
 xlabel("Measurement value (a) [m]  (a_{max} = 10 m) ")
 ylabel("p_{proposed}(a)")
+title("Probability Density Functions")
 legend({'p(a|W_{e})','p(a|M_{m})','p(a|N_{w})','T_{H1}','T_{H2}'},'Location','southeast')
 
 e_Nw = (1- (a/amax).*exp(1-a/amax)); % Energy function for the narrow region
@@ -57,4 +58,5 @@ plot(a,e_We,'g','Linewidth',1)
 
 xlabel("Measurement value (a) [m]  (a_{max} = 10 m) ")
 ylabel("e_{proposed}(a)")
+title("Energy Functions")
 legend({'e_{M_{m}}(a)','e_{N_{w}}(a)','e_{W_{e}}(a)'},'Location','southwest')
