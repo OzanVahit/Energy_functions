@@ -1,6 +1,6 @@
 % produced by Ozan Vahit Altınpınar (altinpinaro@itu.edu.tr) (2025)
 % Matlab script Energy_functions.m
-% Description: This script generates the graphs of the energy functions and probability density functions used in determining Similar Energy Regions.
+% Description: This script generates the graphs of the energy functions and probability density functions used for determining Similar Energy Regions.
 
 clc;
 clear all;
