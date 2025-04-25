@@ -9,15 +9,15 @@ amax = 10;
 a=0:0.1:amax;
 N = length(a);
 e = exp(1);
-fun = @(x) x.*((1/(amax*(exp(1)-1)))).*(exp(1-x/amax));
+fun = @(x) x.*((1/(amax*(e-1)))).*(exp(1-x/amax));
 T_H1 =  integral(fun,0,amax)
 
 fun = @(x) ((1/((e-1)*amax))*(1-exp(1-x/amax)) + (2*e-3)/((e-1)*amax)).*x;
 T_H2 =  integral(fun,0,amax)
 
-p_Nw = ((1/(amax*(exp(1)-1)))).*(exp(1-a/amax)); % probability density function for the narrow region
+p_Nw = ((1/(amax*(e-1)))).*(exp(1-a/amax)); % probability density function for the narrow region
 p_Mm(1:N) = 1/amax; % probability density function for the medium region
-p_We = ((1/(amax*(exp(1)-1)))).*(1-(exp(1-(a)/amax)))+(2*e-3)/((e-1)*amax); % probability density function for the wide region
+p_We = ((1/(amax*(e-1)))).*(1-(exp(1-(a)/amax)))+(2*e-3)/((e-1)*amax); % probability density function for the wide region
 
 A_max = [max(p_Nw) max(p_Mm) max(p_We)];
 p_max = max(A_max)+0.01;
